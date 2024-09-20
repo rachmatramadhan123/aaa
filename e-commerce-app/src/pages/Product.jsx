@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import { getProducts } from '../services/product';
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from '../components/Navbar';
+import { addToCart } from "../redux/slices/cartSlices";
 
 
 const Product = () => {
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getProducts((data) => {
@@ -13,6 +16,9 @@ const Product = () => {
     });
   }, []);
 
+  const handleAddToCart = (data) => {
+    dispatch(addToCart({ id: data.id, qty: 1, title: data.title, price: data.price}))
+  };
   return(
     <>
     <Navbar />
@@ -24,7 +30,7 @@ const Product = () => {
             <Card 
               key = {product.id}
               data = {product}
-              // onClick = {() => }
+              onClick={() => handleAddToCart(product)}
             />
           ))}
         </div>

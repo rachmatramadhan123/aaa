@@ -5,7 +5,3 @@ export const getProducts = (callBack) => {
         callBack(res.data);
     });
 };
-
-export const addProduct = (payload) => {
-    axios.post('https://fakestoreapi.com/products'), payload;
-};

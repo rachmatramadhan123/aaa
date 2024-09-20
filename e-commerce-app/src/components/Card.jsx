@@ -9,7 +9,7 @@ const Card = (props) => {
         <h2 className="text-lg line-clamp-1 mb-2">{data.title}</h2>
         <p className="mb-3 text-gray-900">$ {data.price}</p>
         <button
-          className="px-3 py-2 text-sm font-medium bg-gray-700 text-white"
+          className="px-3 py-2 text-sm font-medium bg-gray-700 text-white hover:bg-sky-700"
           onClick={onClick}
         >
           Add To Cart
