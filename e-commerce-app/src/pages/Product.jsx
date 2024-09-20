@@ -3,6 +3,7 @@ import Card from '../components/Card';
 import { getProducts } from '../services/product';
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { addToCart } from "../redux/slices/cartSlices";
 
 
@@ -17,7 +18,7 @@ const Product = () => {
   }, []);
 
   const handleAddToCart = (data) => {
-    dispatch(addToCart({ id: data.id, qty: 1, title: data.title, price: data.price}))
+    dispatch(addToCart({ id: data.id, qty: 1, title: data.title, price: data.price, image: data.image}))
   };
   return(
     <>
@@ -37,7 +38,7 @@ const Product = () => {
       </div>
 
     </section>
-
+    <Footer />
     </>
   );
 };
